@@ -3,79 +3,271 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Michele Cedolin · Industrial Engineering</title>
-<meta name="description" content="Academic home page of Michele Cedolin, Assistant Professor in Industrial Engineering. Browser-based solvers for location-routing and vehicle routing problems.">
+<title>Michele Cedolin · Industrial Engineering, Routing &amp; Forecasting</title>
+<meta name="description" content="Academic home page of Michele Cedolin, Assistant Professor of Industrial Engineering. Browser-based solvers for vehicle routing and location-routing problems, and a list of publications.">
 <link rel="canonical" href="https://michelecedolin.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Michele Cedolin · Industrial Engineering">
+<meta property="og:description" content="Browser-based solvers for vehicle routing and location-routing problems, and research on forecasting, supply chains and decision analysis.">
+<meta property="og:url" content="https://michelecedolin.com/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Michele Cedolin","jobTitle":"Assistant Professor of Industrial Engineering",
+ "affiliation":{"@type":"CollegeOrUniversity","name":"American University of the Middle East"},
+ "url":"https://michelecedolin.com/",
+ "sameAs":["https://www.linkedin.com/in/michele-cedolin-39ba564a/","https://github.com/MicheleCedolin","https://scholar.google.com/citations?user=u7aftpMAAAAJ"]}
+</script>
 <style>
-  :root {
-    --bg: #fbfbf9; --ink: #25241f; --soft: #66655d; --line: #e2e1da; --accent: #8a3b1f;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #17171a; --ink: #ecebe6; --soft: #a3a29a; --line: #2e2e33; --accent: #e2926c; }
-  }
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0; background: var(--bg); color: var(--ink);
-    font: 17px/1.65 Georgia, "Times New Roman", serif;
-  }
-  main { max-width: 720px; margin: 0 auto; padding: 72px 24px 56px; }
-  h1 { font-size: 2.1rem; line-height: 1.2; margin: 0 0 4px; font-weight: 600; }
-  .role { color: var(--soft); margin: 0 0 28px; }
-  h2 {
-    font: 600 0.78rem/1.2 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-    letter-spacing: 0.09em; text-transform: uppercase; color: var(--soft);
-    margin: 44px 0 14px; padding-top: 18px; border-top: 1px solid var(--line);
-  }
-  p { margin: 0 0 14px; }
-  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-  a:hover { text-decoration-thickness: 2px; }
-  ul.apps { list-style: none; margin: 0; padding: 0; }
-  ul.apps li { margin: 0 0 18px; }
-  ul.apps .name { font-weight: 600; }
-  ul.apps .desc { display: block; color: var(--soft); font-size: 0.95rem; }
-  .muted { color: var(--soft); }
-  footer {
-    margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line);
-    color: var(--soft); font: 0.85rem/1.5 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-  }
+:root{
+  --page:#e4ddca; --paper:#f6f1e4; --ink:#1b1a17; --soft:#58564d; --faint:#cdc5af; --grid:#d9d1bb; --accent:#8a2b1c;
+  --display:"Playfair Display","Bodoni 72","Didot","Bodoni MT","Libre Baskerville",Georgia,"Times New Roman",serif;
+  --text:Georgia,"Iowan Old Style","Palatino Linotype","Liberation Serif","Times New Roman",serif;
+  --sans:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--page);color:var(--ink);font:17px/1.55 var(--text);}
+a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--accent);text-decoration-thickness:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sheet{max-width:1140px;margin:28px auto;padding:22px 44px 40px;background:var(--paper);
+  box-shadow:0 1px 0 #fff8 inset,0 10px 40px #0002,0 0 0 1px #0001;
+  background-image:radial-gradient(#0000000a 1px,transparent 1px);background-size:5px 5px;}
+
+/* masthead */
+.ears{display:flex;justify-content:space-between;gap:12px;font:600 .72rem/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);padding-bottom:8px}
+.ears span:nth-child(2){text-align:center}.ears span:last-child{text-align:right}
+.rule2{height:7px;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink)}
+.masthead{text-align:center;padding:14px 0 10px}
+.masthead h1{margin:0;font:900 clamp(2.7rem,8.6vw,6rem)/.95 var(--display);letter-spacing:-.015em}
+.masthead .tag{margin:10px 0 0;font:italic 1.05rem/1.4 var(--text);color:var(--soft)}
+.masthead .tag b{font-style:normal;color:var(--ink);font-weight:700}
+.navstrip{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 26px;padding:9px 0;border-top:1px solid var(--ink);border-bottom:3px double var(--ink);
+  font:700 .74rem/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.navstrip a{text-decoration:none}.navstrip a:hover{color:var(--accent)}
+
+/* front page */
+.front{display:grid;grid-template-columns:minmax(0,2.35fr) minmax(0,1fr);gap:0 30px;padding-top:24px}
+.lead{padding-right:30px;border-right:1px solid var(--ink)}
+.kicker{margin:0 0 6px;font:700 .72rem/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.lead h2{margin:0 0 10px;font:800 clamp(2rem,4.6vw,3.35rem)/1.04 var(--display);letter-spacing:-.01em}
+.deck{margin:0 0 16px;font:italic 1.22rem/1.4 var(--text);color:var(--soft)}
+figure{margin:0}
+.figbox{border:1px solid var(--ink);background:#fbf8ef;padding:6px}
+figcaption{margin:6px 0 0;font:italic .8rem/1.4 var(--text);color:var(--soft)}
+figcaption b{font:700 .68rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;font-style:normal;color:var(--ink);margin-right:6px}
+.lead .byline{margin:14px 0 8px;font:700 .72rem/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.story{column-count:2;column-gap:28px;column-rule:1px solid var(--faint);text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.story p{margin:0 0 .8em}
+.story p:first-child::first-letter{float:left;font:900 3.5rem/.8 var(--display);padding:6px 8px 0 0}
+.more{font:700 .74rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+
+.rail{display:flex;flex-direction:column;gap:22px}
+.box{border-top:3px solid var(--ink);padding-top:8px}
+.box h3{margin:0 0 8px;font:800 .8rem/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.index{list-style:none;margin:0;padding:0}
+.index li{display:flex;align-items:baseline;gap:6px;padding:5px 0;border-bottom:1px dotted var(--soft)}
+.index li:last-child{border-bottom:0}
+.index .lbl{font-weight:700}.index .dots{flex:1}.index .ds{font-size:.86rem;color:var(--soft);text-align:right}
+.interests{margin:0;padding:0;list-style:none;font:italic 1.1rem/1.5 var(--text)}
+.interests li::before{content:"\2766\00a0";color:var(--accent);font-style:normal}
+.find a{display:block;padding:6px 0;border-bottom:1px dotted var(--soft);text-decoration:none;font-weight:700}
+.find a:last-child{border-bottom:0}.find a span{float:right;font-weight:400;color:var(--soft);font-size:.86rem}
+.find a:hover span{color:var(--accent)}
+.note{font-size:.92rem;color:var(--soft);margin:0}
+
+/* section headers */
+.sechead{margin:44px 0 18px;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink);padding:7px 0;display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+.sechead h2{margin:0;font:900 1.7rem/1.1 var(--display);letter-spacing:.01em}
+.sechead p{margin:0;font:italic .95rem/1.3 var(--text);color:var(--soft)}
+
+/* solver desk */
+.desk,.features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:48px}
+.card,.feature{position:relative}
+.card{display:flex;flex-direction:column}
+.card+.card::before,.feature+.feature::before,.bottom .col+.col::before{content:"";position:absolute;left:-24px;top:0;bottom:0;border-left:1px solid var(--ink)}
+.card .kk{margin:14px 0 4px}
+.card h3{margin:0 0 8px;font:800 1.55rem/1.1 var(--display)}
+.card p.d{margin:0 0 14px;color:var(--ink)}
+.go{margin-top:auto;display:inline-block;align-self:flex-start;border:1.5px solid var(--ink);padding:8px 14px;
+  font:700 .72rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;text-decoration:none}
+.go:hover{background:var(--ink);color:var(--paper)}
+
+/* research */
+.feature h3{margin:0 0 8px;font:800 1.32rem/1.18 var(--display)}
+.feature h3 a{text-decoration:none}.feature h3 a:hover{text-decoration:underline}
+.feature .byline{margin:0 0 4px;font-size:.95rem}.feature .cite{margin:0;font-size:.9rem;color:var(--soft)}
+
+/* archive */
+.archive{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:56px;position:relative}
+.archive::before{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:1px solid var(--faint)}
+.pubgroup{margin:0 0 22px}
+.pubgroup h4{margin:0 0 6px;padding-bottom:4px;border-bottom:1px solid var(--ink);font:800 .74rem/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.pubgroup h4 .n{color:var(--soft);font-weight:600;margin-left:6px}
+.pubs{list-style:none;margin:0;padding:0}
+.pubs li{display:grid;grid-template-columns:3.1rem 1fr;gap:8px;padding:9px 0;border-bottom:1px dotted var(--faint);break-inside:avoid}
+.pubs .yr{font:700 .82rem/1.55 var(--sans);color:var(--accent)}
+.pubs .ent{display:flex;flex-direction:column;gap:1px}
+.pubs .t{font-weight:700;line-height:1.3}.pubs .t a{text-decoration:none}.pubs .t a:hover{text-decoration:underline}
+.pubs .au,.pubs .ve{font-size:.9rem;color:var(--soft);line-height:1.4}
+.pubs .au strong{color:var(--ink)}
+.srcnote{margin:6px 0 0;font:italic .85rem/1.4 var(--text);color:var(--soft)}
+
+/* contact + cv */
+.bottom{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:60px}
+.bottom .col{position:relative}
+.bottom .col+.col::before{left:-30px}
+.bottom h3{margin:0 0 10px;font:800 1.5rem/1.1 var(--display)}
+.mail{font:700 1.25rem/1.3 var(--text)}
+.ad{border:3px double var(--ink);padding:16px 18px;text-align:center;background:#fbf8ef}
+.ad .big{font:900 1.25rem/1.2 var(--display);margin:0 0 4px}.ad p{margin:0;color:var(--soft);font-size:.95rem}
+footer{margin-top:34px;padding-top:10px;border-top:3px double var(--ink);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  font:600 .7rem/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+
+/* svg */
+svg.fig{display:block;width:100%;height:auto}
+svg .grid line{stroke:var(--grid);stroke-width:.8}
+svg .ring{fill:none;stroke:var(--ink);stroke-width:.6;opacity:.18}
+svg .route{fill:none;stroke:var(--ink);stroke-linejoin:round;stroke-linecap:round}
+svg .cust{fill:var(--ink)}
+svg .depot{fill:var(--ink);stroke:#fbf8ef;stroke-width:2}
+svg .dlabel{fill:#fbf8ef;font:700 12px var(--sans)}
+svg .depot-closed{fill:#fbf8ef;stroke:var(--ink);stroke-width:1.4;stroke-dasharray:3 2}
+svg .dlabel-closed{fill:var(--ink);font:700 11px var(--sans);opacity:.6}
+svg .maplabel{fill:var(--ink);font:700 9.5px var(--sans);letter-spacing:.2em;paint-order:stroke;stroke:#fbf8ef;stroke-width:4px;stroke-linejoin:round}
+svg .tlabel{fill:var(--ink);font:italic 12px var(--text);paint-order:stroke;stroke:#fbf8ef;stroke-width:3.5px;stroke-linejoin:round}
+svg .eq{fill:var(--soft);font:italic 12px var(--text)}
+svg .arrowhead{fill:var(--ink)}
+svg .frame{fill:none;stroke:var(--ink);stroke-width:1}
+
+@media (max-width:900px){
+  .sheet{margin:0;padding:16px 18px 30px;box-shadow:none}
+  .front{grid-template-columns:1fr}
+  .lead{padding-right:0;border-right:0}
+  .rail{margin-top:28px}
+  .story{column-count:1}
+  .desk,.features,.bottom{grid-template-columns:1fr}
+  .card+.card::before,.feature+.feature::before,.bottom .col+.col::before,.archive::before{display:none}
+  .card,.feature,.bottom .col{padding:0 0 24px;margin-bottom:6px;border-bottom:1px solid var(--faint)}
+  .bottom .col:last-child{border-bottom:0}
+  .archive{grid-template-columns:1fr}
+  .ears span:nth-child(2){display:none}.ears{justify-content:space-between}
+}
+@media (max-width:520px){ body{font-size:16px} .navstrip{gap:6px 16px} }
+@media print{ body{background:#fff} .sheet{box-shadow:none;margin:0;max-width:none} .navstrip,.go{display:none} }
 </style>
 </head>
 <body>
-<main>
+<div class="sheet">
+
+<div class="ears"><span>Academic edition</span><span id="today">Industrial Engineering</span><span>Vol. I</span></div>
+<div class="rule2"></div>
+<header class="masthead">
   <h1>Michele Cedolin</h1>
-  <p class="role">Assistant Professor in Industrial Engineering</p>
+  <p class="tag"><b>Assistant Professor of Industrial Engineering</b> &middot; American University of the Middle East</p>
+</header>
+<nav class="navstrip" aria-label="Sections">
+  <a href="#software">Software</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#contact">Contact</a>
+</nav>
 
-  <p>I work on optimization and operations research, with a focus on location-routing and vehicle routing problems. I build solvers that run in a web browser, so that the methods can be tried, inspected and reproduced without installing anything.</p>
+<div class="front">
+  <article class="lead">
+    <p class="kicker">Front page</p>
+    <h2>Hard optimization problems, made usable by anyone</h2>
+    <p class="deck">Michele Cedolin builds browser-based solvers for vehicle routing and location-routing problems, and studies forecasting, supply chains and multi-criteria decision-making.</p>
+    <figure>
+      <div class="figbox"><svg class="fig fig-hero" viewBox="0 0 680 360" role="img" aria-label="Map-style illustration of a multi-depot vehicle routing solution: two depots, thirty customers, six routes drawn with different line styles." xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><g class="grid"><line x1="40" y1="0" x2="40" y2="360"/><line x1="80" y1="0" x2="80" y2="360"/><line x1="120" y1="0" x2="120" y2="360"/><line x1="160" y1="0" x2="160" y2="360"/><line x1="200" y1="0" x2="200" y2="360"/><line x1="240" y1="0" x2="240" y2="360"/><line x1="280" y1="0" x2="280" y2="360"/><line x1="320" y1="0" x2="320" y2="360"/><line x1="360" y1="0" x2="360" y2="360"/><line x1="400" y1="0" x2="400" y2="360"/><line x1="440" y1="0" x2="440" y2="360"/><line x1="480" y1="0" x2="480" y2="360"/><line x1="520" y1="0" x2="520" y2="360"/><line x1="560" y1="0" x2="560" y2="360"/><line x1="600" y1="0" x2="600" y2="360"/><line x1="640" y1="0" x2="640" y2="360"/><line x1="0" y1="40" x2="680" y2="40"/><line x1="0" y1="80" x2="680" y2="80"/><line x1="0" y1="120" x2="680" y2="120"/><line x1="0" y1="160" x2="680" y2="160"/><line x1="0" y1="200" x2="680" y2="200"/><line x1="0" y1="240" x2="680" y2="240"/><line x1="0" y1="280" x2="680" y2="280"/><line x1="0" y1="320" x2="680" y2="320"/></g><circle class="ring" cx="205" cy="178" r="70"/><circle class="ring" cx="205" cy="178" r="125"/><circle class="ring" cx="205" cy="178" r="180"/><circle class="ring" cx="478" cy="172" r="70"/><circle class="ring" cx="478" cy="172" r="125"/><circle class="ring" cx="478" cy="172" r="180"/><path class="route" stroke-width="1.9" d="M205.0,178.0 L36.5,156.3 L76.8,60.5 L109.8,99.2 L136.8,68.2 L232.2,78.0 L205.0,178.0"/><path class="route" stroke-width="1.9" stroke-dasharray="8 4" d="M205.0,178.0 L311.3,121.5 L324.1,227.9 L293.8,275.4 L270.1,229.2 L205.0,178.0"/><path class="route" stroke-width="1.9" stroke-dasharray="2 4" d="M205.0,178.0 L226.3,205.0 L222.8,272.3 L144.6,203.8 L58.0,229.1 L69.5,182.2 L205.0,178.0"/><path class="route" stroke-width="1.9" stroke-dasharray="11 3 2 3" d="M478.0,172.0 L425.0,142.7 L362.0,140.8 L394.5,110.7 L369.2,52.3 L432.4,55.2 L478.0,172.0"/><path class="route" stroke-width="1.9" stroke-dasharray="5 3 1 3" d="M478.0,172.0 L480.4,118.1 L559.4,118.6 L631.5,47.6 L617.3,235.6 L584.5,261.8 L501.9,201.3 L478.0,172.0"/><path class="route" stroke-width="1.9" stroke-dasharray="14 5" d="M478.0,172.0 L520.2,238.1 L548.1,309.8 L418.0,310.7 L355.4,289.5 L459.5,207.6 L478.0,172.0"/><circle class="cust" cx="232.2" cy="78.0" r="3.6"/><circle class="cust" cx="432.4" cy="55.2" r="3.6"/><circle class="cust" cx="362.0" cy="140.8" r="3.6"/><circle class="cust" cx="69.5" cy="182.2" r="3.6"/><circle class="cust" cx="76.8" cy="60.5" r="3.6"/><circle class="cust" cx="293.8" cy="275.4" r="3.6"/><circle class="cust" cx="109.8" cy="99.2" r="3.6"/><circle class="cust" cx="418.0" cy="310.7" r="3.6"/><circle class="cust" cx="631.5" cy="47.6" r="3.6"/><circle class="cust" cx="559.4" cy="118.6" r="3.6"/><circle class="cust" cx="222.8" cy="272.3" r="3.6"/><circle class="cust" cx="144.6" cy="203.8" r="3.6"/><circle class="cust" cx="425.0" cy="142.7" r="3.6"/><circle class="cust" cx="369.2" cy="52.3" r="3.6"/><circle class="cust" cx="226.3" cy="205.0" r="3.6"/><circle class="cust" cx="311.3" cy="121.5" r="3.6"/><circle class="cust" cx="520.2" cy="238.1" r="3.6"/><circle class="cust" cx="355.4" cy="289.5" r="3.6"/><circle class="cust" cx="480.4" cy="118.1" r="3.6"/><circle class="cust" cx="58.0" cy="229.1" r="3.6"/><circle class="cust" cx="501.9" cy="201.3" r="3.6"/><circle class="cust" cx="459.5" cy="207.6" r="3.6"/><circle class="cust" cx="548.1" cy="309.8" r="3.6"/><circle class="cust" cx="324.1" cy="227.9" r="3.6"/><circle class="cust" cx="270.1" cy="229.2" r="3.6"/><circle class="cust" cx="136.8" cy="68.2" r="3.6"/><circle class="cust" cx="394.5" cy="110.7" r="3.6"/><circle class="cust" cx="36.5" cy="156.3" r="3.6"/><circle class="cust" cx="617.3" cy="235.6" r="3.6"/><circle class="cust" cx="584.5" cy="261.8" r="3.6"/><rect class="depot" x="194.0" y="167.0" width="22" height="22"/><text class="dlabel" x="205.0" y="182.0" text-anchor="middle">A</text><rect class="depot" x="467.0" y="161.0" width="22" height="22"/><text class="dlabel" x="478.0" y="176.0" text-anchor="middle">B</text><text class="maplabel" x="205" y="212" text-anchor="middle">DEPOT A</text><text class="maplabel" x="478" y="206" text-anchor="middle">DEPOT B</text><rect class="frame" x="1" y="1" width="678" height="358"/></svg></div>
+      <figcaption><b>Fig. 1</b>A multi-depot routing solution: two depots (squares), customers (dots) and one route per vehicle, each drawn in its own line style.</figcaption>
+    </figure>
+    <p class="byline">By Michele Cedolin</p>
+    <div class="story">
+      <p>Industrial engineering is full of problems that are easy to state and hard to solve: where to open depots, which vehicle serves which customer, and in what order. The solvers presented here turn heuristics from the research literature into tools that run in an ordinary web page.</p>
+      <p>Open a page, run an algorithm on an instance and inspect the routes it builds. There is nothing to install and no account to create, and every tool is free to use for teaching and research.</p>
+      <p>The same mindset runs through the rest of the work, from forecasting and the bullwhip effect to facility location and data envelopment analysis: make the method clear enough that others can use it, check it and build on it.</p>
+    </div>
+    <p class="more"><a href="#software">Continue to the solver desk &rarr;</a></p>
+  </article>
 
-  <h2>Software</h2>
-  <ul class="apps">
-    <li>
-      <a class="name" href="https://michelecedolin.github.io/Capacitated-Location-Routing-Problem-CLRP-/index.html">CLRP Solver</a>
-      <span class="desc">Capacitated location-routing problem.</span>
-    </li>
-    <li>
-      <a class="name" href="https://michelecedolin.github.io/VRP-Learn/">VRP Solver</a>
-      <span class="desc">Single-depot and multi-depot vehicle routing.</span>
-    </li>
-    <li>
-      <a class="name" href="https://michelecedolin.github.io/LLRP/index.html">LLRP Solver</a>
-      <span class="desc">Latency location routing problem.</span>
-    </li>
-  </ul>
+  <aside class="rail">
+    <section class="box">
+      <h3>In this edition</h3>
+      <ul class="index">
+        <li><a class="lbl" href="#software">Software</a><span class="dots"></span><span class="ds">VRP &middot; CLRP &middot; LLRP</span></li>
+        <li><a class="lbl" href="#research">Research</a><span class="dots"></span><span class="ds">Selected articles</span></li>
+        <li><a class="lbl" href="#publications">Publications</a><span class="dots"></span><span class="ds">Complete list</span></li>
+        <li><a class="lbl" href="#contact">Contact</a><span class="dots"></span><span class="ds">Mail &amp; profiles</span></li>
+      </ul>
+    </section>
+    <section class="box">
+      <h3>Research interests</h3>
+      <ul class="interests">
+        <li>Location-routing problems</li><li>Supply chain optimization</li><li>Forecasting</li><li>Multi-criteria decision-making</li><li>Data envelopment analysis</li>
+      </ul>
+    </section>
+    <section class="box find">
+      <h3>Find me elsewhere</h3>
+      <a href="https://scholar.google.com/citations?user=u7aftpMAAAAJ">Google Scholar <span>publications &rarr;</span></a>
+      <a href="https://www.linkedin.com/in/michele-cedolin-39ba564a/">LinkedIn <span>profile &rarr;</span></a>
+      <a href="https://github.com/MicheleCedolin">GitHub <span>code &rarr;</span></a>
+    </section>
+  </aside>
+</div>
 
-  <h2>Publications</h2>
-  <p class="muted">The publication list will appear here.</p>
+<div class="sechead" id="software"><h2>The Solver Desk</h2><p>Free, browser-based, nothing to install</p></div>
+<div class="desk">
+  <article class="card">
+    <figure><svg class="fig" viewBox="0 0 320 200" role="img" aria-label="Single-depot vehicle routing: one depot and three routes serving fifteen customers." xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><g class="grid"><line x1="32" y1="0" x2="32" y2="200"/><line x1="64" y1="0" x2="64" y2="200"/><line x1="96" y1="0" x2="96" y2="200"/><line x1="128" y1="0" x2="128" y2="200"/><line x1="160" y1="0" x2="160" y2="200"/><line x1="192" y1="0" x2="192" y2="200"/><line x1="224" y1="0" x2="224" y2="200"/><line x1="256" y1="0" x2="256" y2="200"/><line x1="288" y1="0" x2="288" y2="200"/><line x1="0" y1="32" x2="320" y2="32"/><line x1="0" y1="64" x2="320" y2="64"/><line x1="0" y1="96" x2="320" y2="96"/><line x1="0" y1="128" x2="320" y2="128"/><line x1="0" y1="160" x2="320" y2="160"/><line x1="0" y1="192" x2="320" y2="192"/></g><path class="route" stroke-width="1.6" d="M118.0,104.0 L55.8,96.3 L22.9,79.9 L86.2,28.6 L183.6,32.8 L161.4,58.8 L118.0,104.0"/><path class="route" stroke-width="1.6" stroke-dasharray="8 4" d="M118.0,104.0 L197.3,96.7 L245.0,101.9 L297.3,137.2 L284.7,79.5 L241.1,58.2 L118.0,104.0"/><path class="route" stroke-width="1.6" stroke-dasharray="2 4" d="M118.0,104.0 L182.3,135.8 L230.3,141.0 L276.8,160.5 L56.5,166.8 L67.5,129.6 L118.0,104.0"/><circle class="cust" cx="67.5" cy="129.6" r="3.2"/><circle class="cust" cx="197.3" cy="96.7" r="3.2"/><circle class="cust" cx="245.0" cy="101.9" r="3.2"/><circle class="cust" cx="161.4" cy="58.8" r="3.2"/><circle class="cust" cx="22.9" cy="79.9" r="3.2"/><circle class="cust" cx="183.6" cy="32.8" r="3.2"/><circle class="cust" cx="241.1" cy="58.2" r="3.2"/><circle class="cust" cx="86.2" cy="28.6" r="3.2"/><circle class="cust" cx="297.3" cy="137.2" r="3.2"/><circle class="cust" cx="284.7" cy="79.5" r="3.2"/><circle class="cust" cx="56.5" cy="166.8" r="3.2"/><circle class="cust" cx="230.3" cy="141.0" r="3.2"/><circle class="cust" cx="182.3" cy="135.8" r="3.2"/><circle class="cust" cx="55.8" cy="96.3" r="3.2"/><circle class="cust" cx="276.8" cy="160.5" r="3.2"/><rect class="depot" x="109.0" y="95.0" width="18" height="18"/><text class="dlabel" x="118.0" y="108.0" text-anchor="middle">D</text><rect class="frame" x="1" y="1" width="318" height="198"/></svg></figure>
+    <p class="kicker kk">Vehicle routing</p>
+    <h3>VRP Solver</h3>
+    <p class="d">Single- and multi-depot vehicle routing, solved and visualised in the page.</p>
+    <a class="go" href="https://michelecedolin.github.io/VRP-Learn/">Open the VRP Solver &rarr;</a>
+  </article>
+  <article class="card">
+    <figure><svg class="fig" viewBox="0 0 320 200" role="img" aria-label="Capacitated location-routing: five candidate facilities, two opened, with routes serving seventeen customers." xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><g class="grid"><line x1="32" y1="0" x2="32" y2="200"/><line x1="64" y1="0" x2="64" y2="200"/><line x1="96" y1="0" x2="96" y2="200"/><line x1="128" y1="0" x2="128" y2="200"/><line x1="160" y1="0" x2="160" y2="200"/><line x1="192" y1="0" x2="192" y2="200"/><line x1="224" y1="0" x2="224" y2="200"/><line x1="256" y1="0" x2="256" y2="200"/><line x1="288" y1="0" x2="288" y2="200"/><line x1="0" y1="32" x2="320" y2="32"/><line x1="0" y1="64" x2="320" y2="64"/><line x1="0" y1="96" x2="320" y2="96"/><line x1="0" y1="128" x2="320" y2="128"/><line x1="0" y1="160" x2="320" y2="160"/><line x1="0" y1="192" x2="320" y2="192"/></g><path class="route" stroke-width="1.6" d="M70.0,62.0 L23.7,54.7 L60.8,30.4 L121.1,46.6 L192.9,40.3 L151.3,59.5 L70.0,62.0"/><path class="route" stroke-width="1.6" stroke-dasharray="8 4" d="M70.0,62.0 L104.4,116.5 L98.3,166.6 L20.5,159.4 L20.9,128.5 L28.1,94.5 L70.0,62.0"/><path class="route" stroke-width="1.6" stroke-dasharray="2 4" d="M258.0,150.0 L194.4,138.7 L249.2,96.9 L270.2,67.8 L293.0,23.7 L258.0,150.0"/><path class="route" stroke-width="1.6" stroke-dasharray="11 3 2 3" d="M258.0,150.0 L284.1,123.8 L295.1,159.6 L227.2,167.6 L258.0,150.0"/><circle class="cust" cx="194.4" cy="138.7" r="3.2"/><circle class="cust" cx="227.2" cy="167.6" r="3.2"/><circle class="cust" cx="28.1" cy="94.5" r="3.2"/><circle class="cust" cx="284.1" cy="123.8" r="3.2"/><circle class="cust" cx="151.3" cy="59.5" r="3.2"/><circle class="cust" cx="23.7" cy="54.7" r="3.2"/><circle class="cust" cx="98.3" cy="166.6" r="3.2"/><circle class="cust" cx="192.9" cy="40.3" r="3.2"/><circle class="cust" cx="20.5" cy="159.4" r="3.2"/><circle class="cust" cx="295.1" cy="159.6" r="3.2"/><circle class="cust" cx="270.2" cy="67.8" r="3.2"/><circle class="cust" cx="121.1" cy="46.6" r="3.2"/><circle class="cust" cx="60.8" cy="30.4" r="3.2"/><circle class="cust" cx="104.4" cy="116.5" r="3.2"/><circle class="cust" cx="20.9" cy="128.5" r="3.2"/><circle class="cust" cx="249.2" cy="96.9" r="3.2"/><circle class="cust" cx="293.0" cy="23.7" r="3.2"/><rect class="depot" x="61.5" y="53.5" width="17" height="17"/><text class="dlabel" x="70.0" y="66.0" text-anchor="middle">F</text><rect class="depot-closed" x="241.5" y="39.5" width="17" height="17"/><text class="dlabel-closed" x="250.0" y="52.0" text-anchor="middle">F</text><rect class="depot-closed" x="151.5" y="95.5" width="17" height="17"/><text class="dlabel-closed" x="160.0" y="108.0" text-anchor="middle">F</text><rect class="depot-closed" x="51.5" y="147.5" width="17" height="17"/><text class="dlabel-closed" x="60.0" y="160.0" text-anchor="middle">F</text><rect class="depot" x="249.5" y="141.5" width="17" height="17"/><text class="dlabel" x="258.0" y="154.0" text-anchor="middle">F</text><rect class="frame" x="1" y="1" width="318" height="198"/></svg></figure>
+    <p class="kicker kk">Location-routing</p>
+    <h3>CLRP Solver</h3>
+    <p class="d">Decide which depots to open and how to route vehicles from them in the capacitated location-routing problem.</p>
+    <a class="go" href="https://michelecedolin.github.io/Capacitated-Location-Routing-Problem-CLRP-/index.html">Open the CLRP Solver &rarr;</a>
+  </article>
+  <article class="card">
+    <figure><svg class="fig" viewBox="0 0 320 200" role="img" aria-label="Latency location routing: a single route whose cost is the sum of customer arrival times." xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><g class="grid"><line x1="32" y1="0" x2="32" y2="200"/><line x1="64" y1="0" x2="64" y2="200"/><line x1="96" y1="0" x2="96" y2="200"/><line x1="128" y1="0" x2="128" y2="200"/><line x1="160" y1="0" x2="160" y2="200"/><line x1="192" y1="0" x2="192" y2="200"/><line x1="224" y1="0" x2="224" y2="200"/><line x1="256" y1="0" x2="256" y2="200"/><line x1="288" y1="0" x2="288" y2="200"/><line x1="0" y1="32" x2="320" y2="32"/><line x1="0" y1="64" x2="320" y2="64"/><line x1="0" y1="96" x2="320" y2="96"/><line x1="0" y1="128" x2="320" y2="128"/><line x1="0" y1="160" x2="320" y2="160"/><line x1="0" y1="192" x2="320" y2="192"/></g><defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="arrowhead" d="M0,1 L9,5 L0,9 z"/></marker></defs><line class="route" stroke-width="1.7" x1="30" y1="128" x2="82" y2="62" marker-end="url(#arr)" /><line class="route" stroke-width="1.7" x1="82" y1="62" x2="140" y2="112" marker-end="url(#arr)" /><line class="route" stroke-width="1.7" x1="140" y1="112" x2="192" y2="52" marker-end="url(#arr)" /><line class="route" stroke-width="1.7" x1="192" y1="52" x2="244" y2="102" marker-end="url(#arr)" /><line class="route" stroke-width="1.7" x1="244" y1="102" x2="292" y2="58" marker-end="url(#arr)" /><circle class="cust" cx="82.0" cy="62.0" r="3.8"/><circle class="cust" cx="140.0" cy="112.0" r="3.8"/><circle class="cust" cx="192.0" cy="52.0" r="3.8"/><circle class="cust" cx="244.0" cy="102.0" r="3.8"/><circle class="cust" cx="292.0" cy="58.0" r="3.8"/><text class="tlabel" x="82" y="53" text-anchor="middle">t=4</text><text class="tlabel" x="140" y="132" text-anchor="middle">t=8</text><text class="tlabel" x="192" y="43" text-anchor="middle">t=12</text><text class="tlabel" x="244" y="122" text-anchor="middle">t=16</text><text class="tlabel" x="292" y="49" text-anchor="middle">t=19</text><rect class="depot" x="21.0" y="119.0" width="18" height="18"/><text class="dlabel" x="30.0" y="132.0" text-anchor="middle">D</text><text class="eq" x="160.0" y="188" text-anchor="middle">latency = 4 + 8 + 12 + 16 + 19 = 59</text><rect class="frame" x="1" y="1" width="318" height="198"/></svg></figure>
+    <p class="kicker kk">Latency</p>
+    <h3>LLRP Solver</h3>
+    <p class="d">Heuristics for the latency location routing problem, where the objective is the total arrival time of all customers.</p>
+    <a class="go" href="https://michelecedolin.github.io/LLRP/index.html">Open the LLRP Solver &rarr;</a>
+  </article>
+</div>
 
-  <h2>CV</h2>
-  <p class="muted">The curriculum vitae will be available here as a PDF.</p>
+<div class="sechead" id="research"><h2>Selected Research</h2><p>Recent articles and preprints</p></div>
+<div class="features">
+<article class="feature"><p class="kicker">Journal article · 2026</p><h3><a href="https://doi.org/10.1080/21681015.2025.2564407">A Comprehensive Simulation-Optimization Framework for Pharmaceutical Distribution Networks</a></h3><p class="byline"><strong>M. Cedolin</strong>, A. Bal</p><p class="cite"><em>Journal of Industrial and Production Engineering</em>, 43(3), 338–370 (2026)</p></article>
+<article class="feature"><p class="kicker">Preprint · arXiv · 2025</p><h3><a href="https://arxiv.org/abs/2506.06368">Impact of COVID-19 on the Bullwhip Effect Across US Industries</a></h3><p class="byline">A. Sarıcıoğlu, M. E. Genevois, <strong>M. Cedolin</strong></p><p class="cite"><em>arXiv:2506.06368</em> (2025)</p></article>
+<article class="feature"><p class="kicker">Journal article · 2024</p><h3><a href="https://doi.org/10.1109/ACCESS.2024.3510175">Analyzing One-Step and Multi-Step Forecasting to Mitigate the Bullwhip Effect and Improve Supply Chain Performance</a></h3><p class="byline">A. Sarıcıoğlu, M. E. Genevois, <strong>M. Cedolin</strong></p><p class="cite"><em>IEEE Access</em>, 12, 180161–180174 (2024)</p></article>
+</div>
 
-  <h2>Contact</h2>
-  <p><a href="mailto:contact@michelecedolin.com">contact@michelecedolin.com</a></p>
-  <p><a href="https://www.linkedin.com/in/michele-cedolin-39ba564a/" rel="me noopener">LinkedIn</a> &nbsp;·&nbsp;
-  <a href="https://github.com/MicheleCedolin" rel="me noopener">GitHub</a></p>
+<div class="sechead" id="publications"><h2>The Archive</h2><p>Complete list of publications</p></div>
+<div class="archive">
+<div class="acol"><section class="pubgroup"><h4>Journal articles <span class="n">9</span></h4><ol class="pubs"><li><span class="yr">2026</span><div class="ent"><span class="t"><a href="https://doi.org/10.1080/21681015.2025.2564407">A Comprehensive Simulation-Optimization Framework for Pharmaceutical Distribution Networks</a></span><span class="au"><strong>M. Cedolin</strong>, A. Bal</span><span class="ve"><em>Journal of Industrial and Production Engineering</em>, 43(3), 338–370</span></div></li><li><span class="yr">2024</span><div class="ent"><span class="t"><a href="https://doi.org/10.1109/ACCESS.2024.3510175">Analyzing One-Step and Multi-Step Forecasting to Mitigate the Bullwhip Effect and Improve Supply Chain Performance</a></span><span class="au">A. Sarıcıoğlu, M. E. Genevois, <strong>M. Cedolin</strong></span><span class="ve"><em>IEEE Access</em>, 12, 180161–180174</span></div></li><li><span class="yr">2024</span><div class="ent"><span class="t"><a href="https://doi.org/10.21541/apjess.1360151">Statistical and Artificial Intelligence Based Forecasting Approaches for Cash Demand Problem of Automated Teller Machines</a></span><span class="au"><strong>M. Cedolin</strong>, D. Orhan, M. E. Genevois</span><span class="ve"><em>Academic Platform Journal of Engineering and Smart Systems</em>, 12(1), 21–27</span></div></li><li><span class="yr">2022</span><div class="ent"><span class="t"><a href="https://doi.org/10.1108/K-03-2021-0235">An Averaging Approach to Individual Time Series Employing Econometric Models: A Case Study on NN5 ATM Transactions Data</a></span><span class="au"><strong>M. Cedolin</strong>, M. E. Genevois</span><span class="ve"><em>Kybernetes</em>, 51(9), 2673–2694</span></div></li><li><span class="yr">2021</span><div class="ent"><span class="t"><a href="https://doi.org/10.46928/iticusbe.768918">ATM’lerdeki Nakite Yönelik Talep Tahmini Üzerine Sistematik Yazın Analizi</a></span><span class="au"><strong>M. Cedolin</strong>, M. E. Genevois</span><span class="ve"><em>İstanbul Ticaret Üniversitesi Sosyal Bilimler Dergisi</em>, 20(40), 287–309</span></div></li><li><span class="yr">2020</span><div class="ent"><span class="t"><a href="https://doi.org/10.3233/JIFS-179438">A Novel IFCM Integrated Distance Based Hierarchical Intuitionistic Decision Making Procedure for Agile Supplier Selection</a></span><span class="au">N. Göker, M. Dursun, <strong>M. Cedolin</strong></span><span class="ve"><em>Journal of Intelligent &amp; Fuzzy Systems</em>, 38(1), 653–662</span></div></li><li><span class="yr">2018</span><div class="ent"><span class="t">An Integrated Approach for ATM Location Strategy Using Analytic Network Process and Weighted Goal Programming</span><span class="au">D. C. Turkoglu, <strong>M. Cedolin</strong>, M. E. Genevois</span><span class="ve"><em>WSEAS Transactions on Business and Economics</em>, 15, 236–248</span></div></li><li><span class="yr">2018</span><div class="ent"><span class="t">Recharging Stations Implementation for Electric Vehicles</span><span class="au">M. E. Genevois, <strong>M. Cedolin</strong></span><span class="ve"><em>International Journal of Energy and Environment</em>, 12</span></div></li><li><span class="yr">2017</span><div class="ent"><span class="t">An Integrated Fuzzy DEA and Fuzzy Goal Programming Approach for Selecting Suppliers</span><span class="au">Z. Şener, M. Dursun, <strong>M. Cedolin</strong></span><span class="ve"><em>WSEAS Transactions on Business and Economics</em></span></div></li></ol></section><section class="pubgroup"><h4>Book chapter <span class="n">1</span></h4><ol class="pubs"><li><span class="yr">2022</span><div class="ent"><span class="t"><a href="https://doi.org/10.1007/978-3-030-91851-4_8">A Comparative Analysis of Forecasting Models on COVID-19</a></span><span class="au">M. E. Genevois, <strong>M. Cedolin</strong></span><span class="ve"><em>New Perspectives in Operations Research and Management Science, Springer</em></span></div></li></ol></section><section class="pubgroup"><h4>Preprint <span class="n">1</span></h4><ol class="pubs"><li><span class="yr">2025</span><div class="ent"><span class="t"><a href="https://arxiv.org/abs/2506.06368">Impact of COVID-19 on the Bullwhip Effect Across US Industries</a></span><span class="au">A. Sarıcıoğlu, M. E. Genevois, <strong>M. Cedolin</strong></span><span class="ve"><em>arXiv:2506.06368</em></span></div></li></ol></section><section class="pubgroup"><h4>Theses <span class="n">2</span></h4><ol class="pubs"><li><span class="yr">2022</span><div class="ent"><span class="t">A Comprehensive Decision-Making Approach to the ATM Cashflow Management</span><span class="au"><strong>M. Cedolin</strong></span><span class="ve"><em>Thesis, Institute of Science (Fen Bilimleri Enstitüsü)</em></span></div></li><li><span class="yr">2016</span><div class="ent"><span class="t">Fuzzy Data Envelopment Analysis-Based Decision Approaches for Supplier Evaluation and Selection</span><span class="au"><strong>M. Cedolin</strong></span><span class="ve"><em>Thesis, Faculty of Engineering and Technology (Mühendislik ve Teknoloji Fakültesi)</em></span></div></li></ol></section></div><div class="acol"><section class="pubgroup"><h4>Conference papers <span class="n">13</span></h4><ol class="pubs"><li><span class="yr">2024</span><div class="ent"><span class="t"><a href="https://doi.org/10.1007/978-981-96-3102-5_54">Exploratory Data Analysis in Cardiac Surgery: Enhancing Risk Prediction with Machine Learning</a></span><span class="au">A. B. Birlik, H. Tozan, K. B. Köse, İ. Köse, <strong>M. Cedolin</strong>, K. Erkanlı, K. Çakır</span><span class="ve"><em>International Conference on Data-Processing and Networking, Lecture Notes in Networks and Systems</em>, pp. 735–750</span></div></li><li><span class="yr">2024</span><div class="ent"><span class="t"><a href="https://doi.org/10.1007/978-3-031-67195-1_10">Evaluating the Economic Viability of Solid Waste Recycling Facilities: A Stochastic Approach Using Monte Carlo Simulation</a></span><span class="au">A. Bal, <strong>M. Cedolin</strong></span><span class="ve"><em>International Conference on Intelligent and Fuzzy Systems, Lecture Notes in Networks and Systems</em>, pp. 75–82</span></div></li><li><span class="yr">2024</span><div class="ent"><span class="t"><a href="https://doi.org/10.1007/978-3-031-67192-0_4">Hepatitis C Diagnosis Using Computational Intelligence Techniques</a></span><span class="au"><strong>M. Cedolin</strong>, M. E. Genevois, Z. Canbulat</span><span class="ve"><em>International Conference on Intelligent and Fuzzy Systems, Lecture Notes in Networks and Systems</em>, pp. 29–36</span></div></li><li><span class="yr">2024</span><div class="ent"><span class="t"><a href="https://doi.org/10.1109/CODIT62066.2024.10708473">Cash Demand Prediction Problem Using Econometric and Computational Intelligence Forecasting Models</a></span><span class="au"><strong>M. Cedolin</strong>, M. E. Genevois</span><span class="ve"><em>10th International Conference on Control, Decision and Information Technologies (CoDIT)</em></span></div></li><li><span class="yr">2019</span><div class="ent"><span class="t"><a href="https://doi.org/10.1109/ICDSBA48748.2019.00023">District Performance of the ATMs by Alternative DEA Techniques</a></span><span class="au"><strong>M. Cedolin</strong>, M. E. Genevois</span><span class="ve"><em>3rd International Conference on Data Science and Business Analytics (ICDSBA)</em></span></div></li><li><span class="yr">2019</span><div class="ent"><span class="t"><a href="https://doi.org/10.1063/1.5114523">Financial Service Evaluation of Countries by Data Envelopment Analysis</a></span><span class="au">M. E. Genevois, <strong>M. Cedolin</strong></span><span class="ve"><em>AIP Conference Proceedings</em>, 2116(1), 450056</span></div></li><li><span class="yr">2018</span><div class="ent"><span class="t"><a href="https://doi.org/10.1007/978-3-030-04164-9_30">A Comparative Study on the Economic Development Level of the Countries by Fuzzy DEA Methodologies</a></span><span class="au">M. E. Genevois, <strong>M. Cedolin</strong></span><span class="ve"><em>International Conference on Theory and Applications of Fuzzy Systems and Soft Computing, Advances in Intelligent Systems and Computing</em></span></div></li><li><span class="yr">2018</span><div class="ent"><span class="t">Facility Location Problems – A Case Study for ATM Site Selection</span><span class="au">M. E. Genevois, D. C. Turkoglu, <strong>M. Cedolin</strong></span><span class="ve"><em>Proceedings of the 12th MAC 2018</em>, p. 119</span></div></li><li><span class="yr">2017</span><div class="ent"><span class="t"><a href="https://doi.org/10.1007/978-3-319-66830-7_42">Facility Location Selection Employing Fuzzy DEA and Fuzzy Goal Programming Techniques</a></span><span class="au"><strong>M. Cedolin</strong>, N. Göker, E. Doğu, Y. E. Albayrak</span><span class="ve"><em>Conference of the European Society for Fuzzy Logic and Technology, Advances in Intelligent Systems and Computing</em></span></div></li><li><span class="yr">2017</span><div class="ent"><span class="t">Performance Evaluation of Medical Device Suppliers with Fuzzy DEA Technique</span><span class="au">M. Dursun, Z. Şener, <strong>M. Cedolin</strong></span><span class="ve"><em>Proceedings of the World Congress on Engineering, vol. 2</em></span></div></li><li><span class="yr">2017</span><div class="ent"><span class="t">A Decision Framework to Select Suppliers Considering Risk Criteria</span><span class="au">Z. Şener, <strong>M. Cedolin</strong>, N. Göker, M. Dursun</span><span class="ve"><em>Proceedings of the World Congress on Engineering, vol. 2</em></span></div></li><li><span class="yr">2016</span><div class="ent"><span class="t">An Integrated Fuzzy Decision Approach for Selecting Ships in Maritime Logistics</span><span class="au"><strong>M. Cedolin</strong>, Z. Şener</span><span class="ve"><em>XIV International Logistics and Supply Chain Congress (LM-SCM 2016)</em>, p. 587</span></div></li><li><span class="yr">2016</span><div class="ent"><span class="t"><a href="https://doi.org/10.1142/9789813146976_0123">A Fuzzy Group Decision Making Approach for Supplier Evaluation and Selection in Textile Industry</a></span><span class="au"><strong>M. Cedolin</strong>, Z. Şener</span><span class="ve"><em>Uncertainty Modelling in Knowledge Engineering and Decision Making (FLINS 2016)</em></span></div></li></ol></section></div>
+</div>
+<p class="srcnote">Compiled from <a href="https://scholar.google.com/citations?user=u7aftpMAAAAJ">Google Scholar</a>; DOIs from OpenAlex. Bold marks my name.</p>
 
-  <footer>&copy; Michele Cedolin</footer>
-</main>
+<div class="sechead" id="contact"><h2>Letters to the Editor</h2><p>Contact and curriculum vitae</p></div>
+<div class="bottom">
+  <div class="col">
+    <h3>Contact</h3>
+    <p class="mail"><a href="mailto:contact@michelecedolin.com">contact@michelecedolin.com</a></p>
+    <p class="note">Questions about the solvers, collaboration and teaching enquiries are welcome.</p>
+    <p><a href="https://www.linkedin.com/in/michele-cedolin-39ba564a/">LinkedIn</a> &nbsp;&middot;&nbsp; <a href="https://github.com/MicheleCedolin">GitHub</a> &nbsp;&middot;&nbsp; <a href="https://scholar.google.com/citations?user=u7aftpMAAAAJ">Google Scholar</a></p>
+  </div>
+  <div class="col">
+    <h3>Curriculum vitae</h3>
+    <div class="ad"><p class="big">Coming soon</p><p>The full CV will be available here as a PDF.</p></div>
+  </div>
+</div>
+
+<footer><span>&copy; Michele Cedolin</span><span>Industrial engineering &middot; routing &middot; forecasting</span></footer>
+</div>
+<script>
+(function(){try{var e=document.getElementById('today');if(e){e.textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});}}catch(_){}})();
+</script>
 </body>
 </html>
